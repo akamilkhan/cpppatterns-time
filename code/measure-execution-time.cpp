@@ -1,16 +1,25 @@
 // Measure execution time
-
+#include <iostream>
 #include <chrono>
-
+#include <thread>
+using namespace std;
+void f()
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));//(1));
+    cout << "Sleeping for 1 sec...\n";
+}
 int main()
 {
   using clock = std::chrono::steady_clock;
 
   clock::time_point start = clock::now();
   // A long task...
+  f();
   clock::time_point end = clock::now();
 
   clock::duration execution_time = end - start;
+  cout << "execution_time: " << execution_time.count()/1000000.0 << "\n";
+
 }
 
 // Measure the execution time of a unit of code.
