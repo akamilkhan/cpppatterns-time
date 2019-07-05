@@ -1,0 +1,5 @@
+#!/bin/bash
+mkdir -p build
+g++ ./code/fixed-time-step.cpp -o ./build/fixed-time-step
+g++ ./code/measure-execution-time.cpp -o ./build/measure-execution-time
+g++ ./code/sleep.cpp -o ./build/sleep
